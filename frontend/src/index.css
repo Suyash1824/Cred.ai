@@ -1,2 +1,108 @@
 @import "tailwindcss";
 
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .perspective-2000 {
+    perspective: 2000px;
+  }
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+}
+
+/* Custom 3D Keyframe Animations matching Pinterest Reference 1, 2 & 3 */
+@keyframes floatHeroCard {
+  0%, 100% {
+    transform: translateY(0px) rotate(-6deg) rotateX(8deg) rotateY(-12deg);
+  }
+  50% {
+    transform: translateY(-16px) rotate(-3deg) rotateX(4deg) rotateY(-8deg);
+  }
+}
+
+@keyframes floatCounterCard {
+  0%, 100% {
+    transform: translateY(0px) rotate(10deg) rotateX(12deg) rotateY(15deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(14deg) rotateX(16deg) rotateY(18deg);
+  }
+}
+
+@keyframes rotatePrism {
+  0% {
+    transform: rotate(45deg) rotateX(0deg) rotateY(0deg);
+  }
+  50% {
+    transform: rotate(225deg) rotateX(180deg) rotateY(90deg);
+  }
+  100% {
+    transform: rotate(405deg) rotateX(360deg) rotateY(180deg);
+  }
+}
+
+@keyframes floatCube {
+  0%, 100% {
+    transform: translateY(0px) rotate(15deg) scale(1);
+  }
+  50% {
+    transform: translateY(-14px) rotate(35deg) scale(1.08);
+  }
+}
+
+@keyframes metalSheenSweep {
+  0% {
+    transform: translateX(-150%) skewX(-25deg);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.7;
+  }
+  60% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateX(250%) skewX(-25deg);
+    opacity: 0;
+  }
+}
+
+@keyframes auraBreath {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.25;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.15);
+    opacity: 0.45;
+  }
+}
+
+.animate-float-hero {
+  animation: floatHeroCard 6s ease-in-out infinite;
+}
+
+.animate-float-counter {
+  animation: floatCounterCard 7s ease-in-out infinite;
+}
+
+.animate-rotate-prism {
+  animation: rotatePrism 20s linear infinite;
+}
+
+.animate-float-cube {
+  animation: floatCube 5s ease-in-out infinite;
+}
+
+.animate-aura-breath {
+  animation: auraBreath 8s ease-in-out infinite;
+}
+
+.animate-metal-sheen {
+  animation: metalSheenSweep 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
