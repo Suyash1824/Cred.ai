@@ -1,0 +1,30 @@
+# Environments & secrets
+.env
+.env.*
+!.env.example
+*.pem
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Model artifacts & local joblib dumps (add explicitly when ready if tracked via LFS)
+backend/models/*.joblib
+backend/models/*.pkl
+backend/models/*.json
+backend/models/*.ubj
+
+# Node / React (if frontend lives in same repo)
+frontend/node_modules/
+frontend/dist/
+frontend/.env.local
+
+# OS & editors
+.DS_Store
+.vscode/
+.idea/
