@@ -27,7 +27,7 @@ export function ApplyPage() {
   const [loading, setLoading] = useState(false);
   const [apiError, setApiError] = useState(null);
 
-  // Minimum monthly payment estimate (approx 5% of credit limit or calculated installment)
+  // Minimum monthly payment estimate (approx 5% of credit limit)
   const minMonthlyDue = Math.round(Number(creditLimit) * 0.05);
 
   const cardTiers = [
@@ -35,8 +35,8 @@ export function ApplyPage() {
       id: 'standard',
       name: 'Atlas Standard Card',
       limitRange: '₹25,000 - ₹1,50,000',
-      bgGradient: 'from-indigo-900 via-blue-900 to-slate-900',
-      textColor: 'text-blue-300',
+      bgGradient: 'from-zinc-900 via-zinc-800 to-black',
+      textColor: 'text-zinc-300',
       benefits: '1.5% cashback on all spends • Zero annual fee',
       defaultLimit: 100000
     },
@@ -44,8 +44,8 @@ export function ApplyPage() {
       id: 'premium',
       name: 'Atlas Premium Card',
       limitRange: '₹1,50,000 - ₹5,00,000',
-      bgGradient: 'from-[#831843] via-[#9333ea] to-[#4c1d95]',
-      textColor: 'text-fuchsia-300',
+      bgGradient: 'from-[#271206] via-[#ea580c] to-[#7c2d12]',
+      textColor: 'text-orange-400',
       benefits: '3X rewards on dining & flights • Airport lounge access',
       defaultLimit: 300000
     },
@@ -134,14 +134,14 @@ export function ApplyPage() {
     <div className="max-w-5xl mx-auto py-6">
       {/* Header */}
       <div className="text-center mb-8">
-        <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-fuchsia-950/50 text-fuchsia-300 text-xs font-semibold mb-3 border border-fuchsia-700/50 shadow-[0_0_12px_rgba(217,70,239,0.25)]">
-          <CreditCard className="w-3.5 h-3.5 text-fuchsia-400" />
+        <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-orange-950/50 text-orange-400 text-xs font-semibold mb-3 border border-orange-500/40 shadow-[0_0_12px_rgba(249,115,22,0.25)]">
+          <CreditCard className="w-3.5 h-3.5 text-orange-400" />
           <span>Step 3 of 4 • Card Tier & Limit Configuration</span>
         </div>
         <h1 className="text-2xl sm:text-4xl font-black text-white tracking-tight">
           Select Your AtlasCard Tier & Limit
         </h1>
-        <p className="text-xs sm:text-sm text-slate-400 mt-2 max-w-md mx-auto">
+        <p className="text-xs sm:text-sm text-zinc-400 mt-2 max-w-md mx-auto">
           Customize your requested credit limit and preview your personalized card with instant underwriter routing.
         </p>
       </div>
@@ -161,12 +161,12 @@ export function ApplyPage() {
             onClick={() => handleSelectTier(tier)}
             className={`p-4 rounded-2xl border text-left transition-all cursor-pointer relative overflow-hidden ${
               selectedTier === tier.id
-                ? 'bg-[#180b33] border-fuchsia-500 shadow-[0_0_20px_rgba(217,70,239,0.3)] scale-[1.02]'
-                : 'bg-[#120724]/70 border-white/10 hover:border-white/20'
+                ? 'bg-[#180c04] border-orange-500 shadow-[0_0_20px_rgba(249,115,22,0.3)] scale-[1.02]'
+                : 'bg-[#0c0c10] border-zinc-800 hover:border-zinc-700'
             }`}
           >
             {selectedTier === tier.id && (
-              <span className="absolute top-3 right-3 w-2 h-2 rounded-full bg-fuchsia-400 shadow-[0_0_8px_#d946ef]" />
+              <span className="absolute top-3 right-3 w-2 h-2 rounded-full bg-orange-400 shadow-[0_0_8px_#f97316]" />
             )}
             <span className={`text-xs font-bold uppercase tracking-wider block ${tier.textColor}`}>
               {tier.name}
@@ -174,7 +174,7 @@ export function ApplyPage() {
             <span className="text-sm font-extrabold text-white mt-1 block">
               {tier.limitRange}
             </span>
-            <p className="text-[11px] text-slate-400 mt-2">
+            <p className="text-[11px] text-zinc-400 mt-2">
               {tier.benefits}
             </p>
           </button>
@@ -185,21 +185,21 @@ export function ApplyPage() {
         
         {/* Left Column: Form Controls (7 cols) */}
         <div className="lg:col-span-7 space-y-6">
-          <div className="bg-[#120724] rounded-2xl border border-fuchsia-900/40 p-6 shadow-xl backdrop-blur-md space-y-6">
+          <div className="bg-[#0c0c10] rounded-2xl border border-orange-500/20 p-6 shadow-xl backdrop-blur-md space-y-6">
             
             {/* Requested Credit Limit */}
             <div>
               <div className="flex items-center justify-between mb-2">
-                <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">
+                <label className="text-xs font-semibold text-zinc-300 uppercase tracking-wider">
                   Requested Credit Limit (INR) <span className="text-rose-500">*</span>
                 </label>
-                <span className="text-lg font-black font-mono text-fuchsia-300">
+                <span className="text-lg font-black font-mono text-orange-400">
                   ₹{Number(creditLimit).toLocaleString('en-IN')}
                 </span>
               </div>
 
               <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
+                <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-zinc-500">
                   <span className="font-bold text-sm">₹</span>
                 </div>
                 <input
@@ -209,7 +209,7 @@ export function ApplyPage() {
                   min={25000}
                   max={2000000}
                   step={25000}
-                  className="w-full pl-9 pr-4 py-2.5 rounded-lg border border-fuchsia-900/60 bg-[#190a31] text-white text-sm focus:outline-none focus:ring-2 focus:ring-fuchsia-500/20 focus:border-fuchsia-500"
+                  className="w-full pl-9 pr-4 py-2.5 rounded-lg border border-zinc-800 bg-zinc-900 text-white text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500"
                 />
               </div>
 
@@ -225,7 +225,7 @@ export function ApplyPage() {
                 step={25000}
                 value={creditLimit}
                 onChange={(e) => setCreditLimit(Number(e.target.value))}
-                className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-fuchsia-500 mt-3"
+                className="w-full h-1.5 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-orange-500 mt-3"
               />
 
               {/* Presets */}
@@ -237,8 +237,8 @@ export function ApplyPage() {
                     onClick={() => setCreditLimit(val)}
                     className={`text-xs px-2.5 py-1 rounded-md border transition-colors cursor-pointer ${
                       Number(creditLimit) === val
-                        ? 'bg-fuchsia-600/30 border-fuchsia-500 text-fuchsia-200 font-bold'
-                        : 'bg-white/5 border-white/10 text-slate-300 hover:bg-white/10'
+                        ? 'bg-orange-500/20 border-orange-500 text-orange-300 font-bold'
+                        : 'bg-zinc-900 border-zinc-800 text-zinc-300 hover:bg-zinc-800'
                     }`}
                   >
                     ₹{(val / 100000).toFixed(val % 100000 === 0 ? 0 : 1)}L
@@ -271,19 +271,19 @@ export function ApplyPage() {
             />
 
             {/* Consent Checkbox */}
-            <div className="pt-2 border-t border-white/10">
+            <div className="pt-2 border-t border-zinc-800">
               <label className="flex items-start gap-3 cursor-pointer">
                 <input
                   type="checkbox"
                   checked={consent}
                   onChange={(e) => setConsent(e.target.checked)}
-                  className="w-4.5 h-4.5 mt-0.5 text-fuchsia-600 rounded border-slate-700 bg-slate-900 focus:ring-fuchsia-500"
+                  className="w-4.5 h-4.5 mt-0.5 text-orange-500 rounded border-zinc-700 bg-zinc-900 focus:ring-orange-500"
                 />
-                <div className="text-xs text-slate-300">
+                <div className="text-xs text-zinc-300">
                   <span className="font-semibold text-white">
-                    I authorize Atlas Bank to assess my credit profile for credit card issuance <span className="text-rose-500">*</span>
+                    I authorize Atlas Bank to assess my credit profile for credit card issuance <span className="text-orange-500">*</span>
                   </span>
-                  <p className="text-[11px] text-slate-400 mt-0.5">
+                  <p className="text-[11px] text-zinc-400 mt-0.5">
                     I declare that all details provided are accurate. I acknowledge that the bank credit underwriting team will make the final approval decision.
                   </p>
                 </div>
@@ -297,38 +297,38 @@ export function ApplyPage() {
 
         {/* Right Column: Live Interactive Card Preview & Summary (5 cols) */}
         <div className="lg:col-span-5 space-y-6">
-          <div className="bg-[#120724] rounded-2xl border border-fuchsia-900/40 p-6 shadow-2xl backdrop-blur-md">
+          <div className="bg-[#0c0c10] rounded-2xl border border-orange-500/20 p-6 shadow-2xl backdrop-blur-md">
             
-            <span className="text-[11px] font-bold uppercase tracking-wider text-fuchsia-400 block mb-3">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-orange-400 block mb-3">
               Live Card Preview
             </span>
 
             {/* Live Card Tilt Component */}
             <InteractiveCard intensity={12} isFloating={false}>
-              <div className={`w-full h-48 sm:h-52 rounded-2xl p-5 bg-gradient-to-tr ${activeTierObj.bgGradient} text-white shadow-xl border border-white/20 flex flex-col justify-between relative overflow-hidden`}>
+              <div className={`w-full h-48 sm:h-52 rounded-2xl p-5 bg-gradient-to-tr ${activeTierObj.bgGradient} text-white shadow-xl border border-orange-500/30 flex flex-col justify-between relative overflow-hidden`}>
                 <div className="flex justify-between items-center relative z-10">
                   <span className="text-xs font-bold tracking-wider italic flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-pink-400" />
+                    <span className="w-2 h-2 rounded-full bg-orange-400" />
                     {activeTierObj.name}
                   </span>
-                  <span className="text-xs font-mono tracking-widest text-white/80">CRED.AI</span>
+                  <span className="text-xs font-mono tracking-widest text-zinc-300">CRED.AI</span>
                 </div>
 
-                {/* Chip */}
+                {/* Metallic Gold Chip */}
                 <div className="w-10 h-7 rounded-md bg-gradient-to-br from-amber-200 to-amber-500 border border-amber-300 shadow-inner relative z-10" />
 
                 <div className="relative z-10">
                   <p className="font-mono text-sm sm:text-base font-bold tracking-[0.2em] text-white">
                     4532 •••• •••• 8891
                   </p>
-                  <div className="flex justify-between items-end mt-1 text-[10px] text-white/80 font-mono">
+                  <div className="flex justify-between items-end mt-1 text-[10px] text-zinc-300 font-mono">
                     <div>
                       <span className="block text-[8px] uppercase opacity-70">CARDHOLDER</span>
                       <span className="font-bold text-white uppercase">ADITYA SHARMA</span>
                     </div>
                     <div>
                       <span className="block text-[8px] uppercase opacity-70">CREDIT LIMIT</span>
-                      <span className="font-bold text-fuchsia-300">₹{Number(creditLimit).toLocaleString('en-IN')}</span>
+                      <span className="font-bold text-orange-400">₹{Number(creditLimit).toLocaleString('en-IN')}</span>
                     </div>
                     <span className="text-sm font-black italic">VISA</span>
                   </div>
@@ -337,20 +337,20 @@ export function ApplyPage() {
             </InteractiveCard>
 
             {/* Financial Terms Preview */}
-            <div className="mt-6 pt-4 border-t border-white/10 space-y-2 text-xs">
-              <div className="flex justify-between text-slate-300">
+            <div className="mt-6 pt-4 border-t border-zinc-800 space-y-2 text-xs">
+              <div className="flex justify-between text-zinc-300">
                 <span>Requested Limit:</span>
                 <span className="font-bold text-white">₹{Number(creditLimit).toLocaleString('en-IN')}</span>
               </div>
-              <div className="flex justify-between text-slate-300">
+              <div className="flex justify-between text-zinc-300">
                 <span>Est. Min Monthly Due (5%):</span>
-                <span className="font-bold text-fuchsia-400">~₹{minMonthlyDue.toLocaleString('en-IN')}</span>
+                <span className="font-bold text-orange-400">~₹{minMonthlyDue.toLocaleString('en-IN')}</span>
               </div>
-              <div className="flex justify-between text-slate-300">
+              <div className="flex justify-between text-zinc-300">
                 <span>Annual Percentage Rate (Fixed):</span>
                 <span className="font-semibold text-white">10.5% p.a.</span>
               </div>
-              <div className="flex justify-between text-slate-300">
+              <div className="flex justify-between text-zinc-300">
                 <span>Joining / Annual Fee:</span>
                 <span className="font-bold text-emerald-400">₹0 (Complimentary)</span>
               </div>
@@ -362,13 +362,13 @@ export function ApplyPage() {
                 variant="primary"
                 size="lg"
                 loading={loading}
-                className="w-full bg-gradient-to-r from-fuchsia-600 via-pink-600 to-purple-600 hover:from-fuchsia-500 hover:to-purple-500 text-white font-bold tracking-wider uppercase shadow-[0_0_25px_rgba(217,70,239,0.5)]"
+                className="w-full bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 hover:from-orange-400 hover:to-amber-400 text-black font-black tracking-wider uppercase shadow-[0_0_25px_rgba(249,115,22,0.45)]"
               >
                 Submit Application Now →
               </Button>
 
-              <div className="mt-3 flex items-center justify-center gap-1.5 text-[11px] text-slate-400">
-                <ShieldCheck className="w-3.5 h-3.5 text-fuchsia-400" />
+              <div className="mt-3 flex items-center justify-center gap-1.5 text-[11px] text-zinc-400">
+                <ShieldCheck className="w-3.5 h-3.5 text-orange-400" />
                 <span>Instant Digital Pipeline Submission</span>
               </div>
             </div>

@@ -75,23 +75,23 @@ export function VerifyPage() {
     <div className="max-w-xl mx-auto py-6">
       {/* Page Header */}
       <div className="text-center mb-8">
-        <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-fuchsia-950/50 text-fuchsia-300 text-xs font-semibold mb-3 border border-fuchsia-700/50 shadow-[0_0_12px_rgba(217,70,239,0.25)]">
-          <CreditCard className="w-3.5 h-3.5 text-fuchsia-400" />
+        <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-orange-950/50 text-orange-400 text-xs font-semibold mb-3 border border-orange-500/40 shadow-[0_0_12px_rgba(249,115,22,0.25)]">
+          <CreditCard className="w-3.5 h-3.5 text-orange-400" />
           <span>Step 1 of 4 • Identity Verification</span>
         </div>
         <h1 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
           Verify for AtlasCard Credit Card
         </h1>
-        <p className="text-xs sm:text-sm text-slate-400 mt-2 max-w-md mx-auto">
+        <p className="text-xs sm:text-sm text-zinc-400 mt-2 max-w-md mx-auto">
           Enter your registered bank details to link your existing KYC profile and configure your credit card.
         </p>
       </div>
 
       {/* Demo Credentials Helper Pill */}
-      <div className="mb-6 p-3.5 rounded-2xl bg-[#140b27] border border-fuchsia-900/40 text-xs">
+      <div className="mb-6 p-3.5 rounded-2xl bg-[#0e0702] border border-orange-500/30 text-xs">
         <div className="flex items-center justify-between gap-2 mb-2">
-          <span className="font-semibold text-slate-300 flex items-center gap-1.5">
-            <Sparkles className="w-3.5 h-3.5 text-fuchsia-400" />
+          <span className="font-semibold text-zinc-300 flex items-center gap-1.5">
+            <Sparkles className="w-3.5 h-3.5 text-orange-400" />
             <span>Click to Pre-fill Demo Profile:</span>
           </span>
         </div>
@@ -99,14 +99,14 @@ export function VerifyPage() {
           <button
             type="button"
             onClick={() => handlePrefillDemo('100234567890', '9876543210', '1990-05-15')}
-            className="px-3 py-1.5 bg-[#1b0e35] hover:bg-fuchsia-950/60 border border-fuchsia-500/30 hover:border-fuchsia-400 rounded-lg text-slate-200 text-[11px] font-medium transition-colors cursor-pointer"
+            className="px-3 py-1.5 bg-[#180c04] hover:bg-[#251206] border border-orange-500/30 hover:border-orange-400 rounded-lg text-zinc-200 text-[11px] font-medium transition-colors cursor-pointer"
           >
             Aditya Sharma (₹12 LPA, Prime Tier)
           </button>
           <button
             type="button"
             onClick={() => handlePrefillDemo('200987654321', '9123456789', '1985-11-20')}
-            className="px-3 py-1.5 bg-[#1b0e35] hover:bg-fuchsia-950/60 border border-fuchsia-500/30 hover:border-fuchsia-400 rounded-lg text-slate-200 text-[11px] font-medium transition-colors cursor-pointer"
+            className="px-3 py-1.5 bg-[#180c04] hover:bg-[#251206] border border-orange-500/30 hover:border-orange-400 rounded-lg text-zinc-200 text-[11px] font-medium transition-colors cursor-pointer"
           >
             Priya Patel (₹6.5 LPA, Standard Tier)
           </button>
@@ -119,7 +119,7 @@ export function VerifyPage() {
         </div>
       )}
 
-      <div className="bg-[#120724] rounded-2xl border border-fuchsia-900/40 p-6 sm:p-8 shadow-2xl backdrop-blur-md">
+      <div className="bg-[#0c0c10] rounded-2xl border border-orange-500/20 p-6 sm:p-8 shadow-2xl backdrop-blur-md">
         <form onSubmit={handleSubmit} className="space-y-5">
           <Input
             label="Bank Account Number"
@@ -165,13 +165,13 @@ export function VerifyPage() {
               variant="primary"
               size="lg"
               loading={loading}
-              className="w-full bg-gradient-to-r from-fuchsia-600 to-purple-600 hover:from-fuchsia-500 hover:to-purple-500 text-white font-bold tracking-wider uppercase shadow-[0_0_20px_rgba(217,70,239,0.4)]"
+              className="w-full bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 hover:from-orange-400 hover:to-amber-400 text-black font-black tracking-wider uppercase shadow-[0_0_20px_rgba(249,115,22,0.35)]"
             >
               Verify & Send OTP →
             </Button>
           </div>
 
-          <p className="text-[11px] text-center text-slate-400">
+          <p className="text-[11px] text-center text-zinc-500">
             By proceeding, you authorize Atlas Bank to assess your on-file records for credit card issuance.
           </p>
         </form>

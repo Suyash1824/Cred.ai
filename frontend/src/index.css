@@ -15,7 +15,15 @@
   }
 }
 
-/* Custom 3D Keyframe Animations matching Pinterest Reference 1, 2 & 3 */
+/* Base Body Luxury Dark Theme */
+body {
+  background-color: #050507;
+  color: #f4f4f5;
+  selection-background-color: #f97316;
+  selection-color: #050507;
+}
+
+/* Custom 3D Keyframe Animations matching Pinterest Reference 1, 2 & 3 with Black & Premium Orange */
 @keyframes floatHeroCard {
   0%, 100% {
     transform: translateY(0px) rotate(-6deg) rotateX(8deg) rotateY(-12deg);
@@ -61,10 +69,10 @@
     opacity: 0;
   }
   30% {
-    opacity: 0.7;
+    opacity: 0.8;
   }
   60% {
-    opacity: 0.7;
+    opacity: 0.8;
   }
   100% {
     transform: translateX(250%) skewX(-25deg);
@@ -75,11 +83,11 @@
 @keyframes auraBreath {
   0%, 100% {
     transform: translate(-50%, -50%) scale(1);
-    opacity: 0.25;
+    opacity: 0.28;
   }
   50% {
     transform: translate(-50%, -50%) scale(1.15);
-    opacity: 0.45;
+    opacity: 0.48;
   }
 }
 

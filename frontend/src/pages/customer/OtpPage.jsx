@@ -95,24 +95,24 @@ export function OtpPage() {
       <button
         type="button"
         onClick={() => navigate('/customer/verify')}
-        className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-400 hover:text-white mb-6 transition-colors cursor-pointer"
+        className="inline-flex items-center gap-1.5 text-xs font-semibold text-zinc-400 hover:text-orange-400 mb-6 transition-colors cursor-pointer"
       >
         <ArrowLeft className="w-3.5 h-3.5" />
         <span>Back to Identity Verification</span>
       </button>
 
       <div className="text-center mb-8">
-        <div className="w-14 h-14 rounded-2xl bg-fuchsia-950/60 border border-fuchsia-500/40 text-fuchsia-400 flex items-center justify-center mx-auto mb-4 shadow-[0_0_20px_rgba(217,70,239,0.3)]">
+        <div className="w-14 h-14 rounded-2xl bg-orange-950/60 border border-orange-500/40 text-orange-400 flex items-center justify-center mx-auto mb-4 shadow-[0_0_20px_rgba(249,115,22,0.3)]">
           <KeyRound className="w-7 h-7" />
         </div>
         <h1 className="text-2xl font-black text-white tracking-tight">
           Enter Security Code
         </h1>
-        <p className="text-xs text-slate-400 mt-2">
+        <p className="text-xs text-zinc-400 mt-2">
           A 6-digit OTP has been sent to your registered mobile number ending in{' '}
           <span className="font-semibold text-white">{maskedMobile}</span>.
         </p>
-        <div className="mt-2 inline-block px-3 py-1 rounded-full bg-fuchsia-950/80 border border-fuchsia-500/30 text-fuchsia-300 text-[11px] font-mono font-medium">
+        <div className="mt-2 inline-block px-3 py-1 rounded-full bg-orange-950/80 border border-orange-500/30 text-orange-300 text-[11px] font-mono font-medium">
           Demo Code: Any 6 digits (e.g. 123456)
         </div>
       </div>
@@ -124,13 +124,13 @@ export function OtpPage() {
       )}
 
       {resent && (
-        <div className="mb-6 p-3 rounded-xl bg-fuchsia-950/60 border border-fuchsia-700/50 text-xs text-fuchsia-200 flex items-center gap-2">
-          <CheckCircle2 className="w-4 h-4 text-fuchsia-400 shrink-0" />
+        <div className="mb-6 p-3 rounded-xl bg-orange-950/60 border border-orange-700/50 text-xs text-orange-200 flex items-center gap-2">
+          <CheckCircle2 className="w-4 h-4 text-orange-400 shrink-0" />
           <span>A fresh mock OTP has been dispatched to your mobile.</span>
         </div>
       )}
 
-      <div className="bg-[#120724] rounded-2xl border border-fuchsia-900/40 p-6 sm:p-8 shadow-2xl backdrop-blur-md">
+      <div className="bg-[#0c0c10] rounded-2xl border border-orange-500/20 p-6 sm:p-8 shadow-2xl backdrop-blur-md">
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* OTP 6-box input */}
           <div className="flex justify-center gap-2 sm:gap-3">
@@ -144,7 +144,7 @@ export function OtpPage() {
                 value={digit}
                 onChange={(e) => handleChange(idx, e.target.value)}
                 onKeyDown={(e) => handleKeyDown(idx, e)}
-                className="w-11 h-13 sm:w-12 sm:h-14 text-center text-xl font-bold font-mono rounded-xl border border-fuchsia-900/60 focus:border-fuchsia-400 focus:ring-2 focus:ring-fuchsia-500/20 text-white bg-[#190a31] transition-all outline-hidden"
+                className="w-11 h-13 sm:w-12 sm:h-14 text-center text-xl font-bold font-mono rounded-xl border border-zinc-800 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 text-white bg-zinc-900 transition-all outline-hidden"
               />
             ))}
           </div>
@@ -154,20 +154,20 @@ export function OtpPage() {
             variant="primary"
             size="lg"
             loading={loading}
-            className="w-full bg-gradient-to-r from-fuchsia-600 to-purple-600 hover:from-fuchsia-500 hover:to-purple-500 text-white font-bold tracking-wider uppercase shadow-[0_0_20px_rgba(217,70,239,0.4)]"
+            className="w-full bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 hover:from-orange-400 hover:to-amber-400 text-black font-black tracking-wider uppercase shadow-[0_0_20px_rgba(249,115,22,0.35)]"
           >
             Confirm & Access Profile →
           </Button>
 
           {/* Resend timer */}
-          <div className="text-center text-xs text-slate-400">
+          <div className="text-center text-xs text-zinc-400">
             {timer > 0 ? (
-              <p>Resend code in <span className="font-mono font-semibold text-fuchsia-400">{timer}s</span></p>
+              <p>Resend code in <span className="font-mono font-semibold text-orange-400">{timer}s</span></p>
             ) : (
               <button
                 type="button"
                 onClick={handleResend}
-                className="text-fuchsia-400 font-semibold hover:underline flex items-center justify-center gap-1 mx-auto cursor-pointer"
+                className="text-orange-400 font-semibold hover:underline flex items-center justify-center gap-1 mx-auto cursor-pointer"
               >
                 <RefreshCw className="w-3.5 h-3.5" />
                 <span>Resend OTP Code</span>

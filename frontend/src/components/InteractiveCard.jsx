@@ -68,3 +68,4 @@ export function InteractiveCard({ children, className = '', intensity = 15, isFl
     </div>
   );
 }
+

@@ -101,7 +101,7 @@ export function BankerDetailPage() {
       <div className="max-w-2xl mx-auto py-8">
         <ErrorAlert title="Application Not Found" message={error} retry={fetchDetail} />
         <div className="mt-4 text-center">
-          <Link to="/banker/applications" className="text-xs text-fuchsia-400 hover:underline">
+          <Link to="/banker/applications" className="text-xs text-orange-400 hover:underline">
             ← Back to Card Queue
           </Link>
         </div>
@@ -118,7 +118,7 @@ export function BankerDetailPage() {
       <div className="flex flex-wrap items-center justify-between gap-4">
         <Link
           to="/banker/applications"
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-400 hover:text-white transition-colors"
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-zinc-400 hover:text-white transition-colors"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
           <span>Back to Card Application Queue</span>
@@ -131,21 +131,21 @@ export function BankerDetailPage() {
       </div>
 
       {/* Main Title Banner */}
-      <div className="bg-[#120724] border border-fuchsia-900/40 rounded-2xl p-6 shadow-2xl backdrop-blur-md flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="bg-[#0c0c10] border border-orange-500/20 rounded-2xl p-6 shadow-2xl backdrop-blur-md flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2">
-            <span className="text-xs font-mono text-fuchsia-400 font-bold bg-fuchsia-950/80 border border-fuchsia-700/50 px-2.5 py-0.5 rounded">
+            <span className="text-xs font-mono text-orange-400 font-bold bg-orange-950/80 border border-orange-700/50 px-2.5 py-0.5 rounded">
               {application.application_no}
             </span>
-            <span className="text-xs text-slate-400">
+            <span className="text-xs text-zinc-400">
               Submitted: {new Date(application.submitted_at).toLocaleString('en-IN')}
             </span>
           </div>
           <h1 className="text-2xl font-black text-white mt-1">
             {customer.name}
           </h1>
-          <p className="text-xs text-slate-400 mt-0.5">
-            Requested Credit Limit: <span className="font-bold text-white font-mono">₹{Number(application.loan_amount).toLocaleString('en-IN')}</span> • Primary Usage: <span className="text-slate-300 font-medium">{application.purpose}</span>
+          <p className="text-xs text-zinc-400 mt-0.5">
+            Requested Credit Limit: <span className="font-bold text-white font-mono">₹{Number(application.loan_amount).toLocaleString('en-IN')}</span> • Primary Usage: <span className="text-zinc-300 font-medium">{application.purpose}</span>
           </p>
         </div>
 
@@ -180,18 +180,18 @@ export function BankerDetailPage() {
 
       {/* Decision Recorded Banner if already finalized */}
       {isDecided && (
-        <div className="p-4 rounded-xl border border-fuchsia-800/60 bg-fuchsia-950/40 text-xs">
+        <div className="p-4 rounded-xl border border-orange-800/60 bg-orange-950/40 text-xs">
           <div className="flex items-center justify-between">
-            <span className="font-bold text-fuchsia-300 flex items-center gap-1.5 uppercase tracking-wider text-[11px]">
+            <span className="font-bold text-orange-300 flex items-center gap-1.5 uppercase tracking-wider text-[11px]">
               <Scale className="w-4 h-4" />
               <span>Final Underwriting Decision Recorded: {decision.decision.toUpperCase()}</span>
             </span>
-            <span className="text-slate-400 font-mono">
+            <span className="text-zinc-400 font-mono">
               Decided by: {decision.decided_by} • {new Date(decision.decided_at).toLocaleDateString()}
             </span>
           </div>
           {decision.remarks && (
-            <p className="mt-2 text-slate-300 bg-[#0c0618] p-2.5 rounded-lg border border-white/10">
+            <p className="mt-2 text-zinc-300 bg-[#07070a] p-2.5 rounded-lg border border-zinc-800">
               Remarks: "{decision.remarks}"
             </p>
           )}
@@ -224,17 +224,17 @@ export function BankerDetailPage() {
             </div>
           </div>
 
-          <div className="bg-[#120724] rounded-2xl border border-fuchsia-900/40 p-5 shadow-xl backdrop-blur-md">
-            <div className="flex items-center justify-between mb-4 pb-3 border-b border-white/5">
+          <div className="bg-[#0c0c10] rounded-2xl border border-orange-500/20 p-5 shadow-xl backdrop-blur-md">
+            <div className="flex items-center justify-between mb-4 pb-3 border-b border-zinc-800">
               <div>
                 <h3 className="text-sm font-bold text-white uppercase tracking-wider">
                   Top TreeSHAP Explanation Factors
                 </h3>
-                <p className="text-[11px] text-slate-400 mt-0.5">
+                <p className="text-[11px] text-zinc-400 mt-0.5">
                   Applicant features contributing toward default probability
                 </p>
               </div>
-              <span className="text-[10px] font-mono bg-fuchsia-950 text-fuchsia-400 px-2 py-0.5 rounded border border-fuchsia-800">
+              <span className="text-[10px] font-mono bg-orange-950 text-orange-400 px-2 py-0.5 rounded border border-orange-800">
                 TreeSHAP v0.42
               </span>
             </div>
@@ -242,27 +242,27 @@ export function BankerDetailPage() {
             <ShapFactorList factors={risk.top_factors} />
           </div>
 
-          <div className="bg-[#120724] rounded-2xl border border-fuchsia-900/40 overflow-hidden shadow-xl">
+          <div className="bg-[#0c0c10] rounded-2xl border border-orange-500/20 overflow-hidden shadow-xl">
             <button
               onClick={() => setShowFeatures(!showFeatures)}
-              className="w-full px-5 py-3.5 flex items-center justify-between text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/[0.03] transition-colors cursor-pointer"
+              className="w-full px-5 py-3.5 flex items-center justify-between text-xs font-semibold text-zinc-300 hover:text-white hover:bg-white/[0.03] transition-colors cursor-pointer"
             >
               <div className="flex items-center gap-2">
-                <Layers className="w-4 h-4 text-fuchsia-400" />
+                <Layers className="w-4 h-4 text-orange-400" />
                 <span>Inspect 21 Model Features Sent to XGBoost</span>
               </div>
               {showFeatures ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
             </button>
 
             {showFeatures && (
-              <div className="p-4 border-t border-white/5 bg-[#0a0316]">
+              <div className="p-4 border-t border-zinc-800 bg-[#07070a]">
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 text-[11px]">
                   {Object.entries(features).map(([key, val]) => (
-                    <div key={key} className="p-2 rounded bg-white/[0.03] border border-white/5">
-                      <span className="text-slate-400 font-mono block text-[10px] truncate" title={key}>
+                    <div key={key} className="p-2 rounded bg-zinc-900 border border-zinc-800">
+                      <span className="text-zinc-400 font-mono block text-[10px] truncate" title={key}>
                         {key}
                       </span>
-                      <span className="font-bold font-mono text-fuchsia-300">
+                      <span className="font-bold font-mono text-orange-400">
                         {typeof val === 'number' ? (Number.isInteger(val) ? val : val.toFixed(4)) : String(val)}
                       </span>
                     </div>
@@ -275,88 +275,88 @@ export function BankerDetailPage() {
 
         {/* Right Column: Applicant Details & Core Banking Records (5 cols) */}
         <div className="lg:col-span-5 space-y-6">
-          <div className="bg-[#120724] rounded-2xl border border-fuchsia-900/40 p-5 shadow-xl backdrop-blur-md">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-3 flex items-center gap-1.5">
-              <CreditCard className="w-4 h-4 text-fuchsia-400" />
+          <div className="bg-[#0c0c10] rounded-2xl border border-orange-500/20 p-5 shadow-xl backdrop-blur-md">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-zinc-300 mb-3 flex items-center gap-1.5">
+              <CreditCard className="w-4 h-4 text-orange-400" />
               <span>Requested Credit Card Terms</span>
             </h3>
             <div className="space-y-2.5 text-xs">
-              <div className="flex justify-between py-1.5 border-b border-white/5">
-                <span className="text-slate-400">Requested Limit:</span>
+              <div className="flex justify-between py-1.5 border-b border-zinc-800">
+                <span className="text-zinc-400">Requested Limit:</span>
                 <span className="font-bold text-white font-mono">₹{Number(application.loan_amount).toLocaleString('en-IN')}</span>
               </div>
-              <div className="flex justify-between py-1.5 border-b border-white/5">
-                <span className="text-slate-400">Estimated Min Due:</span>
-                <span className="font-mono font-bold text-fuchsia-300">₹{Math.round(Number(application.loan_amount || 0) * 0.05).toLocaleString('en-IN')} / mo</span>
+              <div className="flex justify-between py-1.5 border-b border-zinc-800">
+                <span className="text-zinc-400">Estimated Min Due:</span>
+                <span className="font-mono font-bold text-orange-400">₹{Math.round(Number(application.loan_amount || 0) * 0.05).toLocaleString('en-IN')} / mo</span>
               </div>
-              <div className="flex justify-between py-1.5 border-b border-white/5">
-                <span className="text-slate-400">Primary Card Usage:</span>
+              <div className="flex justify-between py-1.5 border-b border-zinc-800">
+                <span className="text-zinc-400">Primary Card Usage:</span>
                 <span className="font-semibold text-white">{application.purpose}</span>
               </div>
-              <div className="flex justify-between py-1.5 border-b border-white/5">
-                <span className="text-slate-400">Declared Extra Income:</span>
-                <span className="font-semibold text-slate-300">
+              <div className="flex justify-between py-1.5 border-b border-zinc-800">
+                <span className="text-zinc-400">Declared Extra Income:</span>
+                <span className="font-semibold text-zinc-300">
                   {application.declared_income ? `₹${Number(application.declared_income).toLocaleString('en-IN')}` : 'Not declared'}
                 </span>
               </div>
               <div className="flex justify-between py-1.5">
-                <span className="text-slate-400">On-File Annual Income:</span>
+                <span className="text-zinc-400">On-File Annual Income:</span>
                 <span className="font-bold text-emerald-400 font-mono">₹{Number(customer.annual_income || 0).toLocaleString('en-IN')}</span>
               </div>
             </div>
           </div>
 
-          <div className="bg-[#120724] rounded-2xl border border-fuchsia-900/40 p-5 shadow-xl backdrop-blur-md">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-3 flex items-center gap-1.5">
-              <User className="w-4 h-4 text-fuchsia-400" />
+          <div className="bg-[#0c0c10] rounded-2xl border border-orange-500/20 p-5 shadow-xl backdrop-blur-md">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-zinc-300 mb-3 flex items-center gap-1.5">
+              <User className="w-4 h-4 text-orange-400" />
               <span>Applicant Demographics</span>
             </h3>
             <div className="space-y-2 text-xs">
-              <div className="flex justify-between py-1 border-b border-white/5">
-                <span className="text-slate-400">Age:</span>
+              <div className="flex justify-between py-1 border-b border-zinc-800">
+                <span className="text-zinc-400">Age:</span>
                 <span className="text-white">{customer.age_years || 'N/A'} yrs ({customer.dob})</span>
               </div>
-              <div className="flex justify-between py-1 border-b border-white/5">
-                <span className="text-slate-400">Mobile:</span>
+              <div className="flex justify-between py-1 border-b border-zinc-800">
+                <span className="text-zinc-400">Mobile:</span>
                 <span className="font-mono text-white">{customer.mobile}</span>
               </div>
-              <div className="flex justify-between py-1 border-b border-white/5">
-                <span className="text-slate-400">Occupation:</span>
+              <div className="flex justify-between py-1 border-b border-zinc-800">
+                <span className="text-zinc-400">Occupation:</span>
                 <span className="text-white">{customer.occupation}</span>
               </div>
-              <div className="flex justify-between py-1 border-b border-white/5">
-                <span className="text-slate-400">Employment Vintage:</span>
+              <div className="flex justify-between py-1 border-b border-zinc-800">
+                <span className="text-zinc-400">Employment Vintage:</span>
                 <span className="text-white">{customer.employed_years} years</span>
               </div>
-              <div className="flex justify-between py-1 border-b border-white/5">
-                <span className="text-slate-400">Education:</span>
+              <div className="flex justify-between py-1 border-b border-zinc-800">
+                <span className="text-zinc-400">Education:</span>
                 <span className="text-white">{customer.education}</span>
               </div>
-              <div className="flex justify-between py-1 border-b border-white/5">
-                <span className="text-slate-400">Marital Status / Family:</span>
+              <div className="flex justify-between py-1 border-b border-zinc-800">
+                <span className="text-zinc-400">Marital Status / Family:</span>
                 <span className="text-white">{customer.marital_status} ({customer.family_size} members)</span>
               </div>
               <div className="flex justify-between py-1">
-                <span className="text-slate-400">Owns Property:</span>
+                <span className="text-zinc-400">Owns Property:</span>
                 <span className="text-white">{customer.owns_property}</span>
               </div>
             </div>
           </div>
 
-          <div className="bg-[#120724] rounded-2xl border border-fuchsia-900/40 p-5 shadow-xl backdrop-blur-md">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-3 flex items-center gap-1.5">
-              <CreditCard className="w-4 h-4 text-fuchsia-400" />
+          <div className="bg-[#0c0c10] rounded-2xl border border-orange-500/20 p-5 shadow-xl backdrop-blur-md">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-zinc-300 mb-3 flex items-center gap-1.5">
+              <CreditCard className="w-4 h-4 text-orange-400" />
               <span>Display-Only Banking Records</span>
             </h3>
 
             {display_only.accounts && display_only.accounts.length > 0 && (
               <div className="mb-3 space-y-1.5">
-                <span className="text-[10px] uppercase font-bold text-slate-400 block">Bank Accounts</span>
+                <span className="text-[10px] uppercase font-bold text-zinc-400 block">Bank Accounts</span>
                 {display_only.accounts.map((acc, i) => (
-                  <div key={i} className="p-2 rounded bg-white/[0.03] border border-white/5 text-xs flex justify-between">
+                  <div key={i} className="p-2 rounded bg-zinc-900 border border-zinc-800 text-xs flex justify-between">
                     <div>
-                      <p className="font-semibold text-slate-200">{acc.type}</p>
-                      <p className="text-[10px] text-slate-500 font-mono">{acc.account_no}</p>
+                      <p className="font-semibold text-zinc-200">{acc.type}</p>
+                      <p className="text-[10px] text-zinc-500 font-mono">{acc.account_no}</p>
                     </div>
                     <span className="font-mono font-bold text-emerald-400">
                       ₹{acc.balance.toLocaleString('en-IN')}
@@ -368,16 +368,16 @@ export function BankerDetailPage() {
 
             {display_only.credit_cards && display_only.credit_cards.length > 0 && (
               <div className="space-y-1.5">
-                <span className="text-[10px] uppercase font-bold text-slate-400 block">Existing Cards</span>
+                <span className="text-[10px] uppercase font-bold text-zinc-400 block">Existing Cards</span>
                 {display_only.credit_cards.map((card, i) => (
-                  <div key={i} className="p-2 rounded bg-white/[0.03] border border-white/5 text-xs flex justify-between">
+                  <div key={i} className="p-2 rounded bg-zinc-900 border border-zinc-800 text-xs flex justify-between">
                     <div>
-                      <p className="font-semibold text-slate-200">{card.card_type}</p>
-                      <p className="text-[10px] text-slate-500">{card.payment_status}</p>
+                      <p className="font-semibold text-zinc-200">{card.card_type}</p>
+                      <p className="text-[10px] text-zinc-500">{card.payment_status}</p>
                     </div>
                     <div className="text-right">
-                      <p className="font-mono text-slate-300">₹{card.utilized_amount.toLocaleString('en-IN')} used</p>
-                      <p className="text-[10px] text-slate-500 font-mono">Limit: ₹{card.credit_limit.toLocaleString('en-IN')}</p>
+                      <p className="font-mono text-zinc-300">₹{card.utilized_amount.toLocaleString('en-IN')} used</p>
+                      <p className="text-[10px] text-zinc-500 font-mono">Limit: ₹{card.credit_limit.toLocaleString('en-IN')}</p>
                     </div>
                   </div>
                 ))}
@@ -394,12 +394,12 @@ export function BankerDetailPage() {
         title={`Confirm Underwriter Decision: ${decisionType ? decisionType.toUpperCase() : ''}`}
       >
         <form onSubmit={handleConfirmDecision} className="space-y-4">
-          <div className="p-3 rounded-xl bg-white/[0.04] border border-white/10 text-xs text-slate-300">
+          <div className="p-3 rounded-xl bg-zinc-900 border border-zinc-800 text-xs text-zinc-300">
             <p>
               Applicant: <span className="font-bold text-white">{customer.name}</span> ({application.application_no})
             </p>
             <p className="mt-1">
-              Requested Credit Limit: <span className="font-bold text-fuchsia-300">₹{Number(application.loan_amount).toLocaleString('en-IN')}</span>
+              Requested Credit Limit: <span className="font-bold text-orange-400">₹{Number(application.loan_amount).toLocaleString('en-IN')}</span>
             </p>
             <p className="mt-1">
               ML Risk: <span className="font-bold font-mono">{(risk.risk_score * 100).toFixed(1)}% ({risk.risk_label})</span>
@@ -411,7 +411,7 @@ export function BankerDetailPage() {
           )}
 
           <div>
-            <label className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1.5">
+            <label className="block text-xs font-semibold uppercase tracking-wider text-zinc-300 mb-1.5">
               Underwriting Remarks / Notes {decisionType !== 'approved' && <span className="text-rose-500">*</span>}
             </label>
             <textarea
@@ -425,10 +425,10 @@ export function BankerDetailPage() {
                   ? 'e.g. Request recent 3 months credit card statements and proof of income.'
                   : 'e.g. Credit score below required threshold; delinquency detected on bureau records.'
               }
-              className="w-full p-3 rounded-lg border border-fuchsia-900/60 bg-[#190a31] text-white text-xs focus:outline-none focus:ring-2 focus:ring-fuchsia-500"
+              className="w-full p-3 rounded-lg border border-zinc-800 bg-zinc-900 text-white text-xs focus:outline-none focus:ring-2 focus:ring-orange-500"
             />
             {decisionType !== 'approved' && (
-              <p className="text-[11px] text-slate-400 mt-1">
+              <p className="text-[11px] text-zinc-400 mt-1">
                 Remarks are mandatory for Rejected and More Info decisions.
               </p>
             )}

@@ -12,10 +12,10 @@ export function BankerProtectedRoute({ children }) {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-900 text-white">
+      <div className="min-h-screen flex items-center justify-center bg-[#060608] text-white">
         <div className="flex flex-col items-center gap-3">
-          <div className="w-8 h-8 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin"></div>
-          <p className="text-sm text-slate-400">Verifying banker credentials...</p>
+          <div className="w-8 h-8 border-4 border-orange-500 border-t-transparent rounded-full animate-spin"></div>
+          <p className="text-sm text-zinc-400">Verifying banker credentials...</p>
         </div>
       </div>
     );
@@ -37,10 +37,10 @@ export function CustomerProtectedRoute({ children }) {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-50 text-slate-800">
+      <div className="min-h-screen flex items-center justify-center bg-[#050507] text-white">
         <div className="flex flex-col items-center gap-3">
-          <div className="w-8 h-8 border-4 border-emerald-600 border-t-transparent rounded-full animate-spin"></div>
-          <p className="text-sm text-slate-500">Checking customer session...</p>
+          <div className="w-8 h-8 border-4 border-orange-500 border-t-transparent rounded-full animate-spin"></div>
+          <p className="text-sm text-zinc-400">Checking customer session...</p>
         </div>
       </div>
     );
@@ -52,4 +52,3 @@ export function CustomerProtectedRoute({ children }) {
 
   return children;
 }
-
